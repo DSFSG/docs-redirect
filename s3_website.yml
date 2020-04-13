@@ -1,0 +1,56 @@
+s3_bucket: docs.opendatakit.org
+s3_endpoint: us-west-2
+
+site: ./public
+
+error_document: index.html
+
+max_age: 300
+gzip: true
+
+exclude_from_upload:
+  - s3_website.yml
+
+cloudfront_distribution_id: 
+
+cloudfront_distribution_config:
+  default_cache_behavior:
+    min_ttl: <%= 60 * 60 * 24 %>
+  aliases:
+    quantity: 1
+    items:
+      - docs.opendatakit.org
+
+cloudfront_wildcard_invalidation: true
+
+# folder redirects. executed from top to bottom.
+# these redirects may not be necessary depending on how we redirect from docs.opendatakit.org
+routing_rules:
+  - condition:
+      key_prefix_equals: odk-x/
+    redirect:
+      protocol: https
+      host_name: docs.odk-x.org
+      replace_key_prefix_with: ""
+      http_redirect_code: 301
+  - condition:
+      key_prefix_equals: odk2/
+    redirect:
+      protocol: https
+      host_name: docs.odk-x.org
+      http_redirect_code: 301
+      replace_key_prefix_with: ""
+  - condition:
+      key_prefix_equals: odkx/
+    redirect:
+      protocol: https
+      host_name: docs.odk-x.org
+      replace_key_prefix_with: ""
+      http_redirect_code: 301
+  - condition:
+      key_prefix_equals: /
+    redirect:
+      protocol: https
+      host_name: docs.getodk.org
+      replace_key_prefix_with: ""
+      http_redirect_code: 301

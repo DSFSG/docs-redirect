@@ -1,7 +1,7 @@
-s3_bucket: docs.opendatakit.org
+s3_bucket: dsfsg-docs.opendatakit.org
 s3_endpoint: us-west-2
 
-site: ./public
+site: public
 
 error_document: index.html
 
@@ -11,15 +11,7 @@ gzip: true
 exclude_from_upload:
   - s3_website.yml
 
-cloudfront_distribution_id: 
-
-cloudfront_distribution_config:
-  default_cache_behavior:
-    min_ttl: <%= 60 * 60 * 24 %>
-  aliases:
-    quantity: 1
-    items:
-      - docs.opendatakit.org
+cloudfront_distribution_id: E2MS5A7PQ3I2D
 
 cloudfront_wildcard_invalidation: true
 

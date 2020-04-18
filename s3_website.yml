@@ -32,7 +32,7 @@ routing_rules:
       http_redirect_code: 301
       replace_key_prefix_with: ""
   - condition:
-      key_prefix_equals: odkx
+      key_prefix_equals: odkx/
     redirect:
       protocol: https
       host_name: docs.odk-x.org
@@ -50,3 +50,4 @@ routing_rules:
 redirects:
   odk-x: https://docs.odk-x.org
   odk2: https://docs.odk-x.org
+  odkx: https://docs.odk-x.org

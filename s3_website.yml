@@ -39,15 +39,15 @@ routing_rules:
       replace_key_prefix_with: ""
       http_redirect_code: 301
   - condition:
+      key_prefix_equals: odk
+    redirect:
+      protocol: https
+      host_name: docs.odk-x.org
+      http_redirect_code: 302
+  - condition:
       key_prefix_equals: ""
     redirect:
       protocol: https
       host_name: docs.getodk.org
       replace_key_prefix_with: ""
       http_redirect_code: 301
-
-# redirect pages
-redirects:
-  odk-x: https://docs.odk-x.org
-  odk2: https://docs.odk-x.org
-  odkx: https://docs.odk-x.org
